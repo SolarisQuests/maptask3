@@ -5,9 +5,11 @@ import matplotlib.pyplot as plt
 import math
 from io import BytesIO
 import base64
+from flask_cors import CORS  # Import CORS
+
 
 app = Flask(__name__)
-
+CORS(app, resources={r"/*": {"origins": "*"}})  # Allow all origins (for development)
 # Function to parse deed calls
 def parse_deed_calls(deed_calls):
     directions = []
